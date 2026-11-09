@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nota Certa — assistente de avaliações para restaurantes</title>
+  <meta name="description" content="Classifica avaliações de clientes com IA, mostra os problemas mais frequentes e sugere respostas.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="pular" href="#principal">Pular para o conteúdo</a>
+
+  <header class="topo">
+    <div class="marca">
+      <span class="logo" aria-hidden="true">★</span>
+      <div>
+        <h1>Nota Certa</h1>
+        <p>Transforma avaliações de clientes em decisões, em minutos.</p>
+      </div>
+    </div>
+    <span id="selo-modo" class="selo">Modo demonstração</span>
+  </header>
+
+  <main id="principal">
+    <!-- CONFIGURAÇÃO -->
+    <details class="cartao" id="config">
+      <summary>⚙️ Configurar IA (Gemini)</summary>
+      <p class="dica">Sem chave, o app roda em <strong>modo demonstração</strong> (regras simples, sem IA).
+        Gere uma chave gratuita em <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Google AI Studio</a>.
+        A chave fica salva só neste navegador.</p>
+      <div class="linha">
+        <label for="chave">Chave da API</label>
+        <input id="chave" type="password" autocomplete="off" placeholder="Cole sua chave aqui">
+      </div>
+      <div class="linha">
+        <label for="modelo">Modelo</label>
+        <input id="modelo" type="text" value="gemini-3.8-flash">
+      </div>
+      <div class="acoes">
+        <button id="salvar-config" class="btn">Salvar</button>
+        <button id="limpar-config" class="btn btn-sec">Remover chave</button>
+      </div>
+    </details>
+
+    <!-- ENTRADA -->
+    <section class="cartao" aria-labelledby="t-entrada">
+      <h2 id="t-entrada">1. Avaliações dos clientes</h2>
+      <p class="dica">Cole uma avaliação por linha ou importe um CSV com a coluna <code>texto</code>.</p>
+      <label for="entrada" class="sr">Avaliações, uma por linha</label>
+      <textarea id="entrada" rows="8" placeholder="Ex.: O lanche chegou frio e demorou mais de uma hora."></textarea>
+      <div class="acoes">
+        <button id="exemplos" class="btn btn-sec">Carregar exemplos</button>
+        <label class="btn btn-sec" for="arquivo">Importar CSV</label>
+        <input id="arquivo" type="file" accept=".csv,text/csv" class="sr">
+        <button id="analisar" class="btn btn-principal">Analisar avaliações</button>
+      </div>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </section>
+
+    <!-- PAINEL -->
+    <section id="painel" class="cartao" aria-labelledby="t-painel" hidden>
+      <h2 id="t-painel">2. Painel</h2>
+      <div class="kpis">
+        <div class="kpi"><span id="k-total">0</span><small>avaliações</small></div>
+        <div class="kpi"><span id="k-neg">0%</span><small>negativas</small></div>
+        <div class="kpi"><span id="k-urg">0</span><small>urgentes</small></div>
+        <div class="kpi destaque"><span id="k-tempo">0 min</span><small>economizados*</small></div>
+      </div>
+      <p class="nota-rodape">* Estimativa: 2 min por avaliação para ler, classificar e responder à mão, menos o tempo que a análise levou (<span id="k-duracao">0 s</span>).</p>
+
+      <div class="grade">
+        <div>
+          <h3>Problemas mais frequentes</h3>
+          <div id="grafico" class="grafico" role="list"></div>
+        </div>
+        <div>
+          <h3>O que fazer agora</h3>
+          <ol id="lista-acoes" class="lista-acoes"></ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- LISTA -->
+    <section id="secao-lista" class="cartao" aria-labelledby="t-lista" hidden>
+      <div class="cabecalho-lista">
+        <h2 id="t-lista">3. Avaliações e respostas sugeridas</h2>
+        <div class="acoes">
+          <label for="filtro" class="sr">Filtrar por categoria</label>
+          <select id="filtro"><option value="">Todas as categorias</option></select>
+          <button id="exportar" class="btn btn-sec">Exportar CSV</button>
+        </div>
+      </div>
+      <div id="lista"></div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    Projeto de portfólio · feito com HTML, CSS, JavaScript e Gemini API
+  </footer>
+
+  <script src="js/dados.js"></script>
+  <script src="js/demo.js"></script>
+  <script src="js/gemini.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+// Categorias usadas pela IA e pelo modo demonstração.
+const CATEGORIAS = [
+  "Atraso na entrega",
+  "Pedido errado ou incompleto",
+  "Temperatura",
+  "Qualidade da comida",
+  "Embalagem",
+  "Atendimento",
+  "Preço",
+  "Pagamento",
+  "Elogio",
+  "Outro"
+];
+
+// Avaliações fictícias de um restaurante fictício, para demonstração.
+const EXEMPLOS = [
+  "Pedi às 19h e só chegou 20h40. A comida estava boa, mas a demora foi absurda.",
+  "Melhor parmegiana da cidade! Chegou quentinha e bem embalada. Parabéns!",
+  "Veio sem o refrigerante que eu paguei. Ninguém respondeu minha mensagem.",
+  "O hambúrguer chegou frio e o pão estava murcho.",
+  "Batata muito salgada, não deu pra comer.",
+  "Entrega rápida, lanche gostoso. Vou pedir de novo.",
+  "A embalagem do molho vazou e sujou todo o pedido.",
+  "Pedi sem cebola e veio cheio de cebola. Segunda vez que acontece.",
+  "Achei caro pelo tamanho da porção. Muito pouca comida.",
+  "Demorou mais de uma hora e o entregador foi grosseiro.",
+  "Tudo perfeito, como sempre. Atendimento nota 10!",
+  "A pizza chegou fria e com a borda queimada.",
+  "Faltou o talher e o guardanapo, mas a comida estava ótima.",
+  "Carne crua por dentro. Fiquei bem decepcionado.",
+  "O açaí chegou derretido e a tampa amassada.",
+  "Ok, nada de mais. Comida normal.",
+  "Esperei 1h20 e quando chegou estava gelado. Não peço mais.",
+  "Ótimo custo-benefício, porção generosa!",
+  "Mandaram o pedido de outra pessoa. Tive que esperar trocarem.",
+  "Comida sem gosto, parecia requentada."
+];
