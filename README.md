@@ -2,7 +2,7 @@
 
 > Transforma dezenas de avaliações de clientes em um painel de problemas, um plano de ação e respostas prontas, em minutos.
 
-🔗 **Demo ao vivo:** _cole aqui o link do GitHub Pages_
+🔗 **Demo ao vivo:** https://n-safra.github.io/nota-certa/ (sem chave, roda em modo demonstração)
 🎥 **Vídeo (1–2 min):** _cole aqui o link do vídeo_
 
 ## O problema
